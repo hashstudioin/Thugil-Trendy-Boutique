@@ -63,8 +63,8 @@
         <a href="https://wa.me/919894510713?text=Hi%20Thugil%20Trendy%20Boutique,%20I%20would%20like%20to%20enquire%20about%20custom%20stitching." target="_blank" class="nav-icon-btn" title="WhatsApp">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         </a>
-        <a href="#contact" class="btn btn-maroon" style="padding: 0.55rem 1.2rem; font-size: 0.78rem;">Book Fitting</a>
-        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+        <a href="#contact" class="btn btn-maroon nav-book-btn">Book Fitting</a>
+        <button class="mobile-toggle" aria-label="Toggle navigation menu" id="mobile-toggle">
           <span></span>
           <span></span>
           <span></span>
@@ -74,25 +74,31 @@
   </header>
 
   <!-- Mobile Drawer -->
-  <div class="mobile-drawer-backdrop"></div>
-  <aside class="mobile-drawer">
-    <div class="brand-logo" style="margin-bottom: 2rem;">
-      <span class="brand-title">THUGIL</span>
-      <span class="brand-subtitle">Designer Blouses · Silk Sarees</span>
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+  <aside class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <span class="brand-title">THUGIL</span>
+        <span class="brand-subtitle">Trendy Boutique · Coimbatore</span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#blouses">Blouses</a></li>
-      <li><a href="#aari-work">Aari Work</a></li>
-      <li><a href="#womens-wear">Sarees & Wear</a></li>
-      <li><a href="#craft">Our Craft</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#home">✦ Home</a></li>
+      <li><a href="#blouses">✦ Designer Blouses</a></li>
+      <li><a href="#aari-work">✦ Aari Work & Embroidery</a></li>
+      <li><a href="#womens-wear">✦ Silk Sarees & Wear</a></li>
+      <li><a href="#craft">✦ Our Artisan Craft</a></li>
+      <li><a href="#gallery">✦ Lookbook Gallery</a></li>
+      <li><a href="#about">✦ About Atelier</a></li>
+      <li><a href="#contact">✦ Visit Boutique & Contact</a></li>
     </ul>
-    <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
-      <a href="tel:09894510713" class="btn btn-gold" style="width: 100%;">Call: 098945 10713</a>
-      <a href="https://wa.me/919894510713?text=Hi%20Thugil%20Trendy%20Boutique,%20I%20would%20like%20to%20enquire%20about%20custom%20stitching." target="_blank" class="btn btn-whatsapp" style="width: 100%;">WhatsApp Us</a>
+    <div class="mobile-drawer-actions">
+      <a href="#contact" class="btn btn-maroon" style="width: 100%;">Book Fitting Appointment</a>
+      <a href="https://wa.me/919894510713?text=Hi%20Thugil%20Trendy%20Boutique,%20I%20would%20like%20to%20enquire%20about%20custom%20stitching." target="_blank" class="btn btn-whatsapp" style="width: 100%;">WhatsApp: +91 98945 10713</a>
+      <a href="tel:09894510713" class="btn btn-outline" style="width: 100%;">Call: 098945 10713</a>
     </div>
   </aside>
 

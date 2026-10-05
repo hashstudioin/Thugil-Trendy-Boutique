@@ -1166,10 +1166,120 @@ h6 {
   margin-bottom: 0.5rem;
 }
 
-/* Responsive */
+/* ==========================================================================
+   MOBILE DRAWER STYLES
+   ========================================================================== */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 86%;
+  max-width: 360px;
+  height: 100%;
+  background-color: #FFFFFF;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.35);
+  z-index: 1500;
+  padding: 1.5rem 1.5rem 2rem;
+  transition: right var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 3px solid var(--color-gold);
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  right: 0;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-sand);
+  margin-bottom: 1.5rem;
+}
+
+.mobile-drawer-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-ivory-dark);
+  color: var(--color-maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(196, 154, 69, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.mobile-drawer-close:hover {
+  background-color: var(--color-maroon);
+  color: #FFFFFF;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.mobile-nav-links a {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-maroon);
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  display: block;
+  transition: all var(--transition-fast);
+  border-bottom: 1px dashed rgba(196, 154, 69, 0.2);
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a:active {
+  background-color: var(--color-maroon-soft);
+  color: var(--color-gold-dark);
+  padding-left: 1.1rem;
+}
+
+.mobile-drawer-actions {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-sand);
+}
+
+.mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 3, 7, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1400;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.mobile-drawer-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+   ========================================================================== */
+
+/* Tablet & Medium Screens (max-width: 1024px) */
 @media (max-width: 1024px) {
   .royal-arch-gallery {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 650px;
   }
 
   .occasion-grid {
@@ -1180,110 +1290,387 @@ h6 {
   .occasion-card-featured {
     grid-row: span 1;
     grid-column: span 2;
-    height: 300px;
+    height: 280px;
   }
 
   .arched-cards-row {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
   .heritage-about-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.75rem;
+  }
+
+  .heritage-booking-card {
+    grid-column: span 2;
+    max-width: 580px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .trust-bar-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 }
 
+/* Mobile Devices & Small Tablets (max-width: 768px) */
 @media (max-width: 768px) {
+  :root {
+    --nav-height: 66px;
+  }
+
+  /* Top Announcement Bar */
+  .top-announcement-bar {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.75rem;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+  }
+
+  /* Sticky Navbar */
+  .navbar-inner {
+    gap: 0.6rem;
+  }
+
+  .brand-title {
+    font-size: 1.3rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.55rem;
+    letter-spacing: 0.16em;
+  }
 
   .nav-links,
-  .nav-search-box {
-    display: none;
+  .nav-search-box,
+  .nav-book-btn {
+    display: none !important;
+  }
+
+  .nav-icons-group {
+    gap: 0.5rem;
+  }
+
+  .nav-icon-btn {
+    padding: 0.35rem;
   }
 
   .mobile-toggle {
     display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 36px;
+    height: 36px;
+    padding: 8px 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-sm);
+    background: var(--color-maroon-soft);
+    border: 1px solid rgba(196, 154, 69, 0.4);
+    cursor: pointer;
+  }
+
+  .mobile-toggle span {
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-maroon);
+    border-radius: 2px;
+  }
+
+  /* Hero Section */
+  .royal-hero-section {
+    padding: 2.25rem 0 2.75rem;
+    min-height: auto;
+  }
+
+  .royal-hero-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .royal-hero-brand {
+    font-size: clamp(1.85rem, 6.5vw, 2.75rem);
+  }
+
+  .royal-hero-tagline {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
   }
 
   .royal-arch-gallery {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
+    max-width: 100%;
+  }
+
+  .royal-arch-card {
+    aspect-ratio: 3/4.6;
+    border-radius: 80px 80px 4px 4px;
+  }
+
+  .royal-arch-frame-overlay {
+    border-radius: 80px 80px 4px 4px;
+  }
+
+  .royal-arch-caption {
+    padding: 0.85rem 0.5rem 0.5rem;
+  }
+
+  .royal-arch-title {
+    font-size: 0.95rem;
+  }
+
+  .royal-arch-sub {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+  .royal-hero-cta {
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .royal-hero-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Category Stories Strip */
+  .category-strip-section {
+    padding: 1.5rem 0;
+  }
+
+  .category-circle-row {
+    gap: 0.85rem;
+    justify-content: center;
+  }
+
+  .category-circle-thumb {
+    width: 68px;
+    height: 68px;
+  }
+
+  .category-circle-name {
+    font-size: 0.68rem;
+  }
+
+  /* Occasion Grid */
+  .occasion-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .occasion-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0.85rem;
+  }
+
+  .occasion-card {
+    height: 200px;
   }
 
   .occasion-card-featured {
     grid-column: span 1;
+    height: 230px;
   }
 
+  .occasion-overlay {
+    padding: 1rem;
+  }
+
+  .occasion-title {
+    font-size: 1.2rem;
+  }
+
+  /* Product Cards Grid */
   .arched-cards-row {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
+  .arched-product-body {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .arched-product-title {
+    font-size: 0.95rem;
+  }
+
+  .arched-product-desc {
+    font-size: 0.68rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .arched-product-btn {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  /* Heritage About */
+  .heritage-about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .heritage-arch-portrait {
+    max-width: 280px;
+    margin: 0 auto;
+    aspect-ratio: 3/3.8;
+  }
+
+  .heritage-editorial-center {
+    text-align: center;
+  }
+
+  .heritage-pillars-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .heritage-pillar-item h5 {
+    font-size: 0.68rem;
+  }
+
+  .heritage-pillar-item p {
+    font-size: 0.64rem;
+  }
+
+  .heritage-booking-card {
+    grid-column: span 1;
+    padding: 1.25rem;
+  }
+
+  /* Trust Bar & Reviews */
   .trust-bar-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .review-card {
+    padding: 1.25rem;
+  }
+
+  .review-text {
+    font-size: 0.88rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 3rem 0 1.5rem;
   }
 
   .footer-top {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  /* Lightbox Modal */
+  .lightbox-modal {
+    padding: 1rem;
   }
 
   .lightbox-content {
     grid-template-columns: 1fr;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+
+  .lightbox-image-box {
+    max-height: 260px;
+  }
+
+  .lightbox-info {
+    padding: 1.25rem;
+  }
+
+  /* Floating WhatsApp */
+  .floating-whatsapp {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.76rem;
   }
 }
 
-.mobile-drawer {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 82%;
-  max-width: 320px;
-  height: 100%;
-  background-color: var(--color-ivory);
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
-  z-index: 1500;
-  padding: 4rem 1.75rem 2rem;
-  transition: right var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-left: 2px solid var(--color-gold);
-}
+/* Extra Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
 
-.mobile-drawer.open {
-  right: 0;
-}
+  .brand-title {
+    font-size: 1.18rem;
+  }
 
-.mobile-nav-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-}
+  .brand-subtitle {
+    font-size: 0.5rem;
+  }
 
-.mobile-nav-links a {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  color: var(--color-maroon);
-  font-weight: 600;
-}
+  .royal-arch-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
 
-.mobile-drawer-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1400;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-fast);
-}
+  .royal-arch-card {
+    aspect-ratio: 3/4.8;
+  }
 
-.mobile-drawer-backdrop.open {
-  opacity: 1;
-  pointer-events: auto;
+  .royal-arch-title {
+    font-size: 0.85rem;
+  }
+
+  .arched-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .trust-bar-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .heritage-pillars-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .subpage-hero-title {
+    font-size: 1.75rem;
+  }
 }

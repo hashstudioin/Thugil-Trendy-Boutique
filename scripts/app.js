@@ -34,9 +34,10 @@ function initNavbar() {
    ========================================================================== */
 function initMobileDrawer() {
   const toggleBtn = document.querySelector('.mobile-toggle');
+  const closeBtn = document.querySelector('.mobile-drawer-close');
   const drawer = document.querySelector('.mobile-drawer');
   const backdrop = document.querySelector('.mobile-drawer-backdrop');
-  const drawerLinks = document.querySelectorAll('.mobile-nav-links a');
+  const drawerLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-drawer-actions a');
 
   function toggleDrawer(open) {
     if (drawer && backdrop) {
@@ -54,6 +55,10 @@ function initMobileDrawer() {
 
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => toggleDrawer(true));
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => toggleDrawer(false));
   }
 
   if (backdrop) {
