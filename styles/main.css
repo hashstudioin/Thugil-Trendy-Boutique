@@ -786,6 +786,92 @@ h6 {
 }
 
 /* ==========================================================================
+   AARI CRAFT PHASES & FEATURE GRIDS
+   ========================================================================== */
+.craft-phases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.craft-phase-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(196, 154, 69, 0.25);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+}
+
+.craft-phase-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-heavy);
+}
+
+.craft-phase-media {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.craft-phase-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.craft-phase-card:hover .craft-phase-media img {
+  transform: scale(1.05);
+}
+
+.craft-phase-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.craft-phase-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.craft-phase-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-maroon);
+  margin-bottom: 0.45rem;
+  line-height: 1.25;
+}
+
+.craft-phase-desc {
+  font-size: 0.88rem;
+  color: var(--color-brown-light);
+  line-height: 1.6;
+}
+
+.two-col-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.contact-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+/* ==========================================================================
    HERITAGE ABOUT SPLIT + QUICK BOOKING
    ========================================================================== */
 .heritage-about-section {
@@ -1519,6 +1605,34 @@ h6 {
   .arched-product-btn {
     font-size: 0.65rem;
     padding: 0.4rem 0.5rem;
+  }
+
+  /* Aari Craft Phases (1 Column on Mobile so text & images are never squished) */
+  .craft-phases-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .craft-phase-media {
+    height: 200px;
+  }
+
+  .craft-phase-body {
+    padding: 1.15rem 1rem;
+  }
+
+  .craft-phase-title {
+    font-size: 1.2rem;
+  }
+
+  .craft-phase-desc {
+    font-size: 0.85rem;
+  }
+
+  .two-col-feature-grid,
+  .contact-split-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   /* Heritage About */
